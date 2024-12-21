@@ -26,5 +26,5 @@ The game state is owned by the function in "state.go" and ensures:
 Did perform:
 ```shell
 go vet ./...
-staticcheck ./...
+staticcheck ./... # Before I updated go to newest version. It still depends on go1.22.2
 ```
