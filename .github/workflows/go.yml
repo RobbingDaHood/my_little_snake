@@ -24,8 +24,12 @@ jobs:
     - name: install dependencies
       run: go get honnef.co/go/tools/cmd/staticcheck@latest
 
+    - name: Add Go bin to PATH
+      run: |
+        echo "$HOME/go/bin" >> $GITHUB_PATH  # Add Go bin directory to the PATH so staticcheck can be found
+
     - name: run staticcheck
-      run: go staticcheck ./...
+      run: staticcheck ./...
 
     - name: Build
       run: go build -v ./...
