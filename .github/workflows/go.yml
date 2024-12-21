@@ -21,15 +21,10 @@ jobs:
       with:
         go-version: '1.22.2'
 
-    - name: install dependencies
-      run: go get honnef.co/go/tools/cmd/staticcheck@latest
-
-    - name: Add Go bin to PATH
-      run: |
-        echo "$HOME/go/bin" >> $PATH  # Add Go bin directory to the PATH so staticcheck can be found
-
-    - name: run staticcheck
-      run: staticcheck ./...
+    - name: Run staticcheck
+      uses: dominikh/staticcheck-action@v1
+      with:
+          version: "latest"
 
     - name: Build
       run: go build -v ./...
