@@ -26,7 +26,7 @@ jobs:
 
     - name: Add Go bin to PATH
       run: |
-        echo "$HOME/go/bin" >> $GITHUB_PATH  # Add Go bin directory to the PATH so staticcheck can be found
+        echo "$HOME/go/bin" >> $PATH  # Add Go bin directory to the PATH so staticcheck can be found
 
     - name: run staticcheck
       run: staticcheck ./...
